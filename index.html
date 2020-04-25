@@ -3,36 +3,68 @@
 
 <head>
 	<h1> Welcome to Demos's early codez m8</h1>
-	<h2> <em> Give me more ruffians and scoundrels! Refresh this page! </em></h2>
+	<h2> <em> Give me more ruffians and scoundrels! </em></h2>
 </head>
 
-	<h3>
-		What's that guard like?
-	</h3>
+<html>
+<head>
+  <h2><em>Random Guard Generator</em></h2>
+  <script type="text/javascript">
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-<script src="script.js"></script>
 
-<p>
-	<li>
-	<script type="text/javascript">
-  document.write(generate_text('warrior'));
+var gen_data = {};
+
+gen_data['main'] = [
+'This {attribute} guard was formerly {occupation}. You cannot fail to notice that they appear to be {incompetence}. Nonetheless, they took up the fine art of guarding because {motivation}.'];
+
+gen_data['attribute'] = [
+'anxious', 'overconfident', 'gluttonous', 'drunken', 'deeply religious', 'hedonistic', 'tedious', 'fearful', 'sycophantic', 'lecherous', 'arrogant', 'superstitious', 'enthusiastic', 'witty', 'young', 'insomniac', 'medically trained', 'nefarious', 'knowledgable', 'anally retentive',
+];
+
+gen_data['occupation'] = [
+'a barkeep', 'a gravedigger', 'a jailor', 'a headsman', 'a prostitute', 'a knight', 'a shepherd', 'a bard', 'a sailor', 'a craftsman', 'a librarian', 'a priest', 'a sewer cleaner', 'a minor noble from an obscure and not especially important land', 'a chef', 'a small-time actor', 'an insurance salesman', 'a street vendor', 'a town crier', 'a criminal defense attorney',
+];
+
+gen_data['incompetence'] = [
+'physically puny, some would say a weakling', 
+'trapped in deep philosophical thought about the arbitrary nature of violence', 
+'clumsy and dropping their weapon incessantly', 'falling asleep at their post', 
+'not especially smart', 
+'in poorly kept equipment', 
+'admiring a sketch of some local beauty that they have drawn', 
+'starving, hesitating to eat their foul and hard rations they hold in their hands',
+'boisterous and loud, perhaps expelling gas with some mirth', 
+'completely without a sense of where they are or what it is they are supposed to be doing',
+'generally mildly incompetent','a sociopath', 'wandering off, maybe picking flowers or humming to themselves',
+'challenged at basic arithmetic', 'sporting a peg-leg and an eyepatch', 'melancholic and staring into the sky with wanderlust and passion',
+'attempting to hide something bulky underneath their helmet', 
+'smoking from a long pipe and whimsically regaling their storied past to anyone who wishes to listen', 
+'easily confused and overwhelmed by their new duties', 
+'a worshipper of gods, heroes, especially muscular children, and that somewhat above-average goat that once overpowered them in hand-to-hand combat',
+];
+
+gen_data['motivation'] = [
+'they have a sick relative', 'they are running from the authorities and making an entirely new identity', 'got caught up in a guarding pyramid-scheme', 
+'they want to rise in caste by proving they can look after things competently', ' they needed to make some fast money', 'owe money to an ancient and stingy wizard', 
+'are under a powerful spell that causes subordination to their master','they are after the pure thrill of standing in one place for an especially long time', 
+'heard tales of old about many decorated and well-respected guards', 'they possess a uniquely misplaced sense of chivalry', 'wish to redeem themselves', 
+'are in wedlock to the child of their master and have landed themselves this position through some good old-fashioned nepotism', 'have an insatiable death wish', 
+'wish to prove themselves worthy to their god','are mean-spirited and wish to cause some minor inconvenience', 'they are possessed by the spirit of the last guy who was guarding this place', 
+'had a desire to travel, meet interesting people, have career prospects and maybe even reach middle-management', 'had no other options left in their last job',
+];
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 </script>
-</li>
-</p>
-<p>
-	<li>
-	<script type="text/javascript">
-  document.write(generate_text('warrior'));
-</script>
-</li>
-</p>
-<p>
-	<li>
-	<script type="text/javascript">
-  document.write(generate_text('warrior'));
-</script>
-</li>
-</p>
+</head>
+<body>
+  <form style="height: 700; width: 100; resize: none;" method="get" onsubmit="return false;"> 
+    <p><textarea id="output" cols="150" rows="1" readonly></textarea></p>
+    <p><input type="button" value="Generate More Ruffians!" onclick="more_random();" /></p>
+  </form>
+  <script type="text/javascript" src="data:text/javascript;base64,Ly8gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtCi8vIHJhbmRvbS5qcwovLwovLyB3cml0dGVuIGFuZCByZWxlYXNlZCB0byB0aGUgcHVibGljIGRvbWFpbiBieSBkcm93IDxkcm93QGJpbi5zaD4KLy8gaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvcHVibGljZG9tYWluL3plcm8vMS4wLwoKZnVuY3Rpb24gbW9yZV9yYW5kb20oKXt2YXIgYT1kb2N1bWVudC5nZXRFbGVtZW50QnlJZCgib3V0cHV0IiksYj1wYXJzZUludChhLnJvd3MpO2lmKGI8MSliPTE7Yj1nZW5lcmF0ZV9saXN0KCJtYWluIixiKTthLnZhbHVlPWIuam9pbigiXG4iKX1mdW5jdGlvbiBnZW5lcmF0ZV90ZXh0KGEpe2lmKGE9Z2VuX2RhdGFbYV0paWYoYT1zZWxlY3RfZnJvbShhKSlyZXR1cm4gZXhwYW5kX3Rva2VucyhhKTtyZXR1cm4iIn1mdW5jdGlvbiBnZW5lcmF0ZV9saXN0KGEsYil7dmFyIGM9W10sZDtmb3IoZD0wO2Q8YjtkKyspYy5wdXNoKGdlbmVyYXRlX3RleHQoYSkpO3JldHVybiBjfWZ1bmN0aW9uIHNlbGVjdF9mcm9tKGEpe3JldHVybiBhLmNvbnN0cnVjdG9yPT1BcnJheT9zZWxlY3RfZnJvbV9hcnJheShhKTpzZWxlY3RfZnJvbV90YWJsZShhKX1mdW5jdGlvbiBzZWxlY3RfZnJvbV9hcnJheShhKXtyZXR1cm4gYVtNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkqYS5sZW5ndGgpXX0KZnVuY3Rpb24gc2VsZWN0X2Zyb21fdGFibGUoYSl7dmFyIGI7aWYoYj1zY2FsZV90YWJsZShhKSl7Yj1NYXRoLmZsb29yKE1hdGgucmFuZG9tKCkqYikrMTt2YXIgYztmb3IoYyBpbiBhKXt2YXIgZD1rZXlfcmFuZ2UoYyk7aWYoYj49ZFswXSYmYjw9ZFsxXSlyZXR1cm4gYVtjXX19cmV0dXJuIiJ9ZnVuY3Rpb24gc2NhbGVfdGFibGUoYSl7dmFyIGI9MCxjO2ZvcihjIGluIGEpe3ZhciBkPWtleV9yYW5nZShjKTtpZihkWzFdPmIpYj1kWzFdfXJldHVybiBifWZ1bmN0aW9uIGtleV9yYW5nZShhKXt2YXIgYjtyZXR1cm4oYj0vKFxkKyktMDAvLmV4ZWMoYSkpP1twYXJzZUludChiWzFdKSwxMDBdOihiPS8oXGQrKS0oXGQrKS8uZXhlYyhhKSk/W3BhcnNlSW50KGJbMV0pLHBhcnNlSW50KGJbMl0pXTphPT0iMDAiP1sxMDAsMTAwXTpbcGFyc2VJbnQoYSkscGFyc2VJbnQoYSldfQpmdW5jdGlvbiBleHBhbmRfdG9rZW5zKGEpe2Zvcih2YXIgYjtiPS97KFx3Kyl9Ly5leGVjKGEpOyl7Yj1iWzFdO3ZhciBjO2E9KGM9Z2VuZXJhdGVfdGV4dChiKSk/YS5yZXBsYWNlKCJ7IitiKyJ9IixjKTphLnJlcGxhY2UoInsiK2IrIn0iLGIpfXJldHVybiBhfW1vcmVfcmFuZG9tKCk7Cg=="></script>
+</body>
+</html>
 
 
 </html>
